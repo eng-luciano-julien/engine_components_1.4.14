@@ -124,6 +124,7 @@ export class CullerRenderer extends Component<THREE.WebGLRenderer> {
 
     const camera = this.components.camera.get();
     camera.updateMatrix();
+    console.log('updateVisibility');
 
     this.renderer.setSize(this._width, this._height);
     this.renderer.setRenderTarget(this.renderTarget);
