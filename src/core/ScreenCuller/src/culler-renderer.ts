@@ -122,9 +122,8 @@ export class CullerRenderer extends Component<THREE.WebGLRenderer> {
     if (!this.enabled) return;
     if (!this.needsUpdate && !force) return;
 
-    const camera = this.components.camera.get();
-    camera.updateMatrix();
-    console.log('updateVisibility');
+    const camera = this.components.camera.get().clone() as THREE.PerspectiveCamera;
+    camera.clearViewOffset();
 
     this.renderer.setSize(this._width, this._height);
     this.renderer.setRenderTarget(this.renderTarget);
